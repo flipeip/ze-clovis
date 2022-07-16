@@ -1,9 +1,8 @@
 # Telas - 7
 - Entrar
     1. Seleção de Entrada (tipo veículo)
-    2. Entrada anônima - moto
-    3. Entrada anônima - carro
-    4. Entrada cadastrado (leitor / para moto e carro)
+    2. Entrada anônima
+    3. Entrada cadastrado (leitor / carro)
 
 - Sair
     1. Leitor
@@ -20,25 +19,20 @@
     - Acompanhar a ocupação das vagas em tempo real
     - Determinar quantidade de vagas
     - Cadastrar usuários
-    - Cadastrar admin
+    - Cadastrar veículo
 
 # Modelos
 - Admin
     - (gerenciado pelo django)
 - Garagem
-    - Vagas (carro)
-    - Vagas (moto)
+    - Vagas
     - Preço por hora
 - Dono
     - Nome
     - CPF
-- Veiculo
-    - Placa
-    - Tipo (moto/carro)
-    - Descricao
-    - > Dono
 - Vaga
+    - Ativo
     - Horário de entrada
     - Horário de saída
     - Pago?
-    - Veiculo (opcional)
+    - Dono (opcional)
