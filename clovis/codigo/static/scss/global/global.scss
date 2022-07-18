@@ -1,0 +1,20 @@
+:root {
+    --green: #4ADE80;
+    --gray-100: #E5E7EB;
+    --gray-500: #6B7280;
+    --white: #F3F4F6;
+    --red: #F87171;
+    --blue: #818CF8;
+    --black: #000000;
+    --purple: #C084FC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}

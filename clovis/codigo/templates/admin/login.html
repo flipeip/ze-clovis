@@ -1,0 +1,27 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% sass_src 'scss/login/login.scss' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container">
+        {% include 'utils/sidebar.html' with mensagem="faça seu login" %}
+        <div class="main">
+            <div>
+                <form action="">
+                    <h2>Login</h2>
+
+                    <input type="text" placeholder="usuário">
+                    <input type="text" placeholder="senha">
+
+                    <button>
+                        login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

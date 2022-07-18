@@ -15,7 +15,11 @@ class Config(models.Model):
     vagas = models.PositiveIntegerField(verbose_name="Número de Vagas")
 
     def get_singleton():
-        return Config.objects.first()
+        config = Config.objects.first()
+        if not config:
+            Config(preco=10.00, vagas=50).save()
+            config = Config.objects.first()
+        return config
 
 
 class Admin(models.Model):
@@ -24,7 +28,7 @@ class Admin(models.Model):
     """
 
     email = models.EmailField()
-    senha = models.CharField()
+    senha = models.CharField(max_length=32)
 
 
 class UsuarioCadastrado(models.Model):
