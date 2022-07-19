@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  width: 70%;
+  align-items: center; }
+  .main div {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin: 0 auto; }
+    .main div h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      width: 40%; }
+    .main div div.options-buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      margin-top: 3rem;
+      justify-content: end;
+      gap: 3rem; }
+      .main div div.options-buttons button {
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        color: var(--white);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.2rem; }
+      .main div div.options-buttons .registered {
+        background-color: var(--green); }
+      .main div div.options-buttons .anonymous {
+        background-color: var(--purple); }
+
+/*# sourceMappingURL=entrada.css.map */

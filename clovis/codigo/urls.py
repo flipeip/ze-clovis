@@ -7,7 +7,15 @@ from .views import *
 app_name = 'codigo'
 
 urlpatterns = [
-    path('admin/', AdminLogin.as_view()),
-    path('entrada/', UserArrive.as_view()),
-    path('saida/', UserDepart.as_view()),
+    path('', AdminLogin.as_view(), name='admin-login'),
+    path('home/', AdminHome.as_view(), name='admin-home'),
+    path('configuracao/', AdminSetup.as_view(), name='admin-config'),
+    path('registro/', AdminUserRegister.as_view(), name='admin-user-register'),
+
+    path('entrada/', UserArrive.as_view(), name='user-arrive'),
+    path('entrada/login', UserArriveLogin.as_view(), name='user-login'),
+    path('entrada/ficha', UserArriveToken.as_view(), name='user-token'),
+
+    path('saida/', UserDepart.as_view(), name='user-depart'),
+    path('saida/pagamento', UserDepartPrice.as_view(), name='user-price'),
 ]

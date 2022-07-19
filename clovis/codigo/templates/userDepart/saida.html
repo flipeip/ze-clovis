@@ -1,0 +1,23 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    {% include 'utils/sidebar.html' with mensagem="hora de sair..." %}
+    <div class="main">
+        <div>
+            <form action="" method="POST">
+                <h2>Informe sua ficha</h2>
+                {% csrf_token %}
+                <input type="text" placeholder="ficha">
+
+                <button class="btn-primary">confirmar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

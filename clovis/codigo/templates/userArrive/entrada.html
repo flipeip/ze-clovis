@@ -1,0 +1,27 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% sass_src 'scss/userArrive/entrada.scss' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    {% include 'utils/sidebar.html' with mensagem="seja bem vindo" %}
+    <div class="main">
+        <div>
+            <h2>Confirme a sua entrada</h2>
+
+            <div class="options-buttons">
+                <a href="{% url 'codigo:user-login' %}">
+                    <button class="btn-arrive registered">sou cadastrado</button>
+                </a>
+                <a href="{% url 'codigo:user-token' %}">
+                    <button class="btn-arrive anonymous">entrada comum</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% sass_src 'scss/login/home.scss' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="container-home">
+    {% include 'utils/admin-header.html' with back="codigo:admin-home" %}
+    <div class="main">
+
+    </div>
+</div>
+{% endblock content %}

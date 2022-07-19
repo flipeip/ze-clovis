@@ -1,0 +1,18 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+<meta http-equiv="refresh" content="15; URL='{% url 'codigo:user-arrive' %}'" />
+<link rel="stylesheet" href="{# sass_src 'scss/login/login.scss' #}">
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    {% include 'utils/sidebar.html' with mensagem="siga em diante" %}
+    <div class="main">
+        <h2>Essa é sua ficha</h2>
+        <div>24</div>
+    </div>
+</div>
+{% endblock content %}

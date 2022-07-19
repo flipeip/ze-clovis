@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    width: 70%;
+    align-items: center;
+
+    div {
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+        margin: 0 auto;
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            width: 40%;
+        }
+
+        div.options-buttons {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 3rem;
+            justify-content: end;
+            gap: 3rem;
+
+            button {
+                cursor: pointer;
+                width: 200px;
+                height: 50px;
+                border: none;
+                border-radius: 10px;
+                color: var(--white);
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+            .registered {
+                background-color: var(--green);
+            }
+
+            .anonymous {
+                background-color: var(--purple);
+            }
+        }
+    }
+}
