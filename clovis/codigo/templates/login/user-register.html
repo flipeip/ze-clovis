@@ -10,7 +10,15 @@
 <div class="container-home">
     {% include 'utils/admin-header.html' with back="codigo:admin-home" %}
     <div class="main">
-
+        <div>
+            <form action="" method="POST">
+                <h2>Cadastrar usuário</h2>
+                {% csrf_token %}
+                <input name="userName" type="text" placeholder="nome do usuário">
+                <input name="cpf" type="text" placeholder="cpf">
+                <button class="btn-primary">Cadastrar</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}

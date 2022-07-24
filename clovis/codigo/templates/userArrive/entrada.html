@@ -18,7 +18,10 @@
                     <button class="btn-arrive registered">sou cadastrado</button>
                 </a>
                 <a href="{% url 'codigo:user-token' %}">
-                    <button class="btn-arrive anonymous">entrada comum</button>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <button class="btn-arrive anonymous">entrada comum</button>
+                    </form>
                 </a>
             </div>
         </div>

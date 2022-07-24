@@ -13,7 +13,7 @@
             <form action="" method="POST">
                 <h2>Informe sua ficha</h2>
                 {% csrf_token %}
-                <input type="text" placeholder="ficha">
+                <input name="ficha" type="text" placeholder="ficha">
 
                 <button class="btn-primary">confirmar</button>
             </form>

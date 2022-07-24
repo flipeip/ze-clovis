@@ -11,8 +11,8 @@
 <div class="container">
     {% include 'utils/sidebar.html' with mensagem="siga em diante" %}
     <div class="main">
-        <h2>Essa é sua ficha</h2>
-        <div>24</div>
+        <h2>Essa é sua ficha{% if nome %}, {{nome}}.{% endif %}</h2>
+        <div>{{ id }}</div>
     </div>
 </div>
 {% endblock content %}

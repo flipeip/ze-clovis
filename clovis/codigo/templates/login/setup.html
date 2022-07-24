@@ -10,7 +10,24 @@
 <div class="container-home">
     {% include 'utils/admin-header.html' with back="codigo:admin-home" %}
     <div class="main">
+        <form>
+            {% csrf_token %}
+            <div>
+                <h2>Alterar valor da hora</h2>
+                <p>Valor atual: R${{ preco }}</p>
+                <p>Novo valor: R$</p>
+                <input name="novoValorHora" type="number">
+            </div>
+            <div>
+                <h2>Estacionamento</h2>
+                <p>Veículos estacionados: {{ estacionados }}</p>
+                <p>Número de vagas disponíveis: {{ vagas }}</p>
+                <p>Novo número de vagas: </p>
+                <input name="novoNumeroVagas" type="number">
+            </div>
 
+            <button class="bnt-primary">Alterar valores</button>
+        </form>
     </div>
 </div>
 {% endblock content %}

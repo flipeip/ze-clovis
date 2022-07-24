@@ -15,11 +15,9 @@ class Config(models.Model):
     vagas = models.PositiveIntegerField(verbose_name="Número de Vagas")
 
     def get_singleton():
-        config = Config.objects.first()
-        if not config:
+        if not Config.objects.first():
             Config(preco=10.00, vagas=50).save()
-            config = Config.objects.first()
-        return config
+        return Config.objects.first()
 
 
 class Admin(models.Model):
@@ -46,9 +44,12 @@ class Ficha(models.Model):
     Modelo para uma ficha registrada no sistema
     """
 
-    horario_entrada = models.DateField(
+    horario_entrada = models.DateTimeField(
         auto_now_add=True, verbose_name="Horário de Entrada")
-    horario_saida = models.DateField(verbose_name="Horário de Saída")
-    usuario = models.OneToOneField(
+    horario_saida = models.DateTimeField(verbose_name="Horário de Saída", null=True)
+    usuario = models.ForeignKey(
         UsuarioCadastrado, blank=True, null=True, on_delete=models.PROTECT)
-    pago = models.BooleanField()
+    pago = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Ficha {self.id}';

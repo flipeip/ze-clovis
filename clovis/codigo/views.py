@@ -5,7 +5,7 @@ Lógica do backend do sistema
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect, reverse
 
-from .models import Admin
+from .models import Admin, UsuarioCadastrado, Ficha, Config
 
 
 class AdminLogin(TemplateView):
@@ -15,6 +15,10 @@ class AdminLogin(TemplateView):
     template_name = 'login/login.html'
 
     def post(self, *args, **kwargs):
+        """
+        Validação do formulário, busca do usuário e confirmação da senha
+        """
+
         email = self.request.POST.get('email')
         senha = self.request.POST.get('password')
 
@@ -38,6 +42,13 @@ class AdminSetup(TemplateView):
     """
     template_name = 'login/setup.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        config = Config.get_singleton()
+        context['preco'] = config.preco
+        context['vagas'] = config.vagas
+        context['estacionados'] = Ficha.objects.filter(pago=False).count()
+        return context
 
 class AdminUserRegister(TemplateView):
     """
@@ -52,6 +63,13 @@ class UserArrive(TemplateView):
     """
     template_name = 'userArrive/entrada.html'
 
+    def post(self, *args, **kwargs):
+        ficha = Ficha()
+        ficha.save()
+        response = redirect(reverse('codigo:user-token'))
+        response['Location'] += '?id=' + str(ficha.id)
+        return response
+
 
 class UserArriveLogin(TemplateView):
     """
@@ -59,12 +77,33 @@ class UserArriveLogin(TemplateView):
     """
     template_name = 'userArrive/login.html'
 
+    def post(self, *args, **kwargs):
+        cpf = self.request.POST.get('cpf')
+        if cpf:
+            if UsuarioCadastrado.objects.filter(cpf=cpf).exists():
+                usuario = UsuarioCadastrado.objects.get(cpf = cpf)
+                if Ficha.objects.filter(usuario = usuario, pago = False).exists():
+                    return redirect(reverse('codigo:user-arrive'))
+                ficha = Ficha(usuario = usuario)
+                ficha.save()
+                response = redirect(reverse('codigo:user-token'))
+                response['Location'] += '?id=' + str(ficha.id) + '&nome=' + usuario.nome
+                return response
+        return redirect(reverse('codigo:user-arrive'))
+
 
 class UserArriveToken(TemplateView):
     """
     Tela de exibição da ficha do usuário
     """
     template_name = 'userArrive/token.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['id'] = self.request.GET.get('id')
+        if self.request.GET.get('nome'):
+            context['nome'] = self.request.GET.get('nome')
+        return context
 
 
 class UserDepart(TemplateView):
@@ -73,9 +112,16 @@ class UserDepart(TemplateView):
     """
     template_name = 'userDepart/saida.html'
 
+    def post(self, *args, **kwargs):
+        if self.request.POST.get('ficha'):
+            if Ficha.objects.filter(id = int(self.request.POST.get('ficha'))).exists():
+                return redirect(reverse('codigo:user-price'))
+        return redirect(reverse('codigo:user-depart'))
+
 
 class UserDepartPrice(TemplateView):
     """
     Tela de exibição de preço da estadia do usuário
     """
+    
     template_name = 'userDepart/price.html'
