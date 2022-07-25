@@ -34,5 +34,27 @@
       font-weight: 700;
       font-size: 1.25rem;
       color: var(--white); }
+    .main form .screens {
+      width: 100%;
+      height: 12.5%;
+      display: flex; }
+      .main form .screens a {
+        cursor: pointer;
+        gap: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        width: 100%;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--purple);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--white);
+        margin-right: 3%; }
+      .main form .screens :last-child {
+        margin-right: 0; }
 
 /*# sourceMappingURL=login.css.map */

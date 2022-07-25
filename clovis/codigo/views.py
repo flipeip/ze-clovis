@@ -29,6 +29,11 @@ class AdminLogin(TemplateView):
                 admin = Admin.objects.get(email=email)
                 if admin.senha == senha:
                     return redirect(reverse('codigo:admin-home'))
+                messages.error(self.request, 'Senha não corresponde à conta do administrador')
+            else:
+                messages.error(self.request, 'Conta de administrador não existe')
+        else:
+            messages.error(self.request, 'E-mail não informado')
         return redirect(reverse('codigo:admin-login'))
 
 
@@ -72,13 +77,17 @@ class AdminUserRegister(TemplateView):
     template_name = 'login/user-register.html'
 
     def post(self, *args, **kwargs):
-        if self.request.POST.get('userName') and self.request.POST.get('cpf'):
-            usuario = UsuarioCadastrado()
-            usuario.nome = self.request.POST.get('userName')
-            usuario.cpf = self.request.POST.get('cpf')
-            usuario.save()
-            return redirect(reverse('codigo:admin-home'))
-        message()
+        if (self.request.POST.get('userName') != '') and (self.request.POST.get('cpf') != ''):
+            if not (UsuarioCadastrado.objects.filter(cpf = self.request.POST.get('cpf')).exists()):
+                usuario = UsuarioCadastrado()
+                usuario.nome = self.request.POST.get('userName')
+                usuario.cpf = self.request.POST.get('cpf')
+                usuario.save()
+                return redirect(reverse('codigo:admin-home'))
+            else:
+                messages.error(self.request, 'CPF já cadastrado')
+        else:
+            messages.error(self.request, 'Informe todos os dados do usuário')
         return redirect(reverse('codigo:admin-user-register'))
 
 class AdminLog(TemplateView):
@@ -90,7 +99,7 @@ class AdminLog(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['estacionados'] = Ficha.objects.filter()
+        context['estacionados'] = Ficha.objects.all().order_by('-id')
         return context
 
 class UserArrive(TemplateView):
@@ -119,12 +128,17 @@ class UserArriveLogin(TemplateView):
             if UsuarioCadastrado.objects.filter(cpf=cpf).exists():
                 usuario = UsuarioCadastrado.objects.get(cpf = cpf)
                 if Ficha.objects.filter(usuario = usuario, pago = False).exists():
+                    messages.error(self.request, 'Não existem fichas pendentes deste usuário')
                     return redirect(reverse('codigo:user-arrive'))
                 ficha = Ficha(usuario = usuario)
                 ficha.save()
                 response = redirect(reverse('codigo:user-token'))
                 response['Location'] += '?id=' + str(ficha.id) + '&nome=' + usuario.nome
                 return response
+            else:
+                messages.error(self.request, 'Usuário não existe.')
+        else:
+            messages.error(self.request, 'CPF não informado.')
         return redirect(reverse('codigo:user-arrive'))
 
 

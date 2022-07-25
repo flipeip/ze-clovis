@@ -15,8 +15,8 @@
                 <div class="container-form">
                     <h2>Cadastrar usuário:</h2>
                     {% csrf_token %}
-                    <input name="userName" type="text" placeholder="nome do usuário">
-                    <input name="cpf" type="text" placeholder="cpf">
+                    <input id="username" name="userName" type="text" placeholder="nome do usuário">
+                    <input id="cpfInput" name="cpf" type="text" placeholder="cpf">
                 </div>
                     
                 <button class="btn-primary">Cadastrar</button>

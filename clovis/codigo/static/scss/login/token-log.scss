@@ -30,24 +30,34 @@ header {
 
 .main{
     display: flex;
-    height: 70%;
+    height: 88%;
     justify-content: center;
-    div{
-        display: flex;
-        width: 93.5%;
+    align-items: center;
+
+    table {
+        width: 95%;
+        height: 90%;
         margin: 0 auto;
-        flex-direction: row;
-        border: 1px black solid;
-        table{
-            thead{
-                tr{
-                    td{
+        padding: 1rem;
+        font-family: "Montserrat", sans-serif;
 
-                    }
-                }    
+        thead {
+            tr {
+                td {
+                    text-align: center;
+                    margin: 0 1rem;
+                }
+            }    
+        }
+
+        tbody {
+            background-color: var(--gray-100);
+
+            tr {
+                td {
+                    text-align: center;
+                }
             }
-
-            
         }
     }
 }

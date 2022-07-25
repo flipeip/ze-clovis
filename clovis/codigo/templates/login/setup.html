@@ -14,26 +14,31 @@
         <div>
             <form action="" method="POST">
                 {% csrf_token %}
-                <div class="container-form">
+                <div class="container-form hour-value-container">
                     <h2>Alterar valor da hora</h2>
-                    <p>Valor atual: R${{ preco }}</p>
-                    <p>Novo valor: R$</p>
-                    <input name="novoValorHora" type="number" placeholder="valor">
+                    <p>Valor atual: R$ {{ preco }}</p>
+                    <div class="set-new-value">
+                        <p>Novo valor: R$</p>
+                        <input name="novoValorHora" type="number">
+                    </div>
                 </div>
-                <div class="container-form">
+                <div class="container-form parking-lot-container">
                     <h2>Estacionamento</h2>
                     <p>Veículos estacionados: {{ estacionados }}</p>
                     <p>Número de vagas disponíveis: {{ vagas }}</p>
-                    <p>Novo número de vagas: </p>
-                    <input name="novoNumeroVagas" type="number" placeholder="vagas">
+                    <div class="set-new-value">
+                        <p>Novo número de vagas: </p>
+                        <input name="novoNumeroVagas" type="number">
+                    </div>
                 </div>
-                <div class="container-form">
+                <div class="container-form discount-value-container">
                     <h2>Desconto</h2>
-                    <p>Desconto atual: {{ desconto }}</p>
-                    <p>Novo valor: R$</p>
-                    <input name="novoValorDesconto" type="number" placeholder="valor">
+                    <p>Desconto atual: {{ desconto }}%</p>
+                    <div class="set-new-value">
+                        <p>Novo valor: R$</p>
+                        <input name="novoValorDesconto" type="number">
+                    </div>
                 </div>
-
                 <button class="bnt-primary">Alterar</button>
             </form>
         </div>

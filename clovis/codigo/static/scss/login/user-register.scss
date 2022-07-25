@@ -49,7 +49,7 @@ header {
             .container-form {
                 display: flex;
                 flex-direction: column;
-                height: 25%;
+                height: 30%;
                 justify-content: space-between;
                 color: var(--gray-500);
                 font-family: "Montserrat", sans-serif;
@@ -57,22 +57,31 @@ header {
 
                 input {
                     width: 30%;
-                    height: 20%;
+                    height: 25%;
                     font-family: "Montserrat", sans-serif;
+                    font-size: 1.2rem;
                     border: none;
                     background-color: var(--gray-100);
                     padding: 1rem;
                     border-radius: 10px;
                 }
+
+                #username {
+                    width: 35%
+                }
+
+                #cpfInput{
+                    width: 20%;
+                }
             }
 
             button {
                 margin-bottom: 2rem;
-                width: 20%;
+                width: 25%;
                 height: 7.5%;
                 align-self: flex-end;
                 border: none;
-                border-radius: 10px;
+                border-radius: 20px;
                 background-color: var(--purple);
                 color: var(--white);
                 font-family: "Montserrat", sans-serif;

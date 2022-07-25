@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block head %}
+<meta http-equiv="refresh" content="5; URL='{% url 'codigo:admin-log' %}'" />
 <link rel="stylesheet" href="{% sass_src 'scss/login/token-log.scss' %}">
 {% endblock head %}
 
@@ -14,23 +15,25 @@
             <thead>
                 <tr>
                     <td>FICHA</td>
+                    <td>PAGO/ESTACIONADO</td>
                     <td>HORÁRIO ENTRADA</td>
                     <td>HORÁRIO SAÍDA</td>
                     <td>NOME</td>
                     <td>PREÇO</td>
-                    <td>PAGO/ESTACIONADO</td>
                 </tr>
             </thead>
-            {% for item in estacionados %}
+            <tbody>
+                {% for item in estacionados %}
                 <tr>
                     <td>{{item.id}}</td>
-                    <td>{{item.horario_entrada|date:'d/m/y h:m:s'}}</td>
-                    <td>{% if item.horario_saida %}{{item.horario_saida|date:'d/m/y h:m:s'}}{% else %}-{% endif %}</td>
+                    <td>{% if item.pago %}PAGO{% else %}ESTACIONADO{%  endif %}</td>
+                    <td>{{item.horario_entrada|date:'d/m/y H:m'}}</td>
+                    <td>{% if item.horario_saida %}{{item.horario_saida|date:'d/m/y H:m'}}{% else %}-{% endif %}</td>
                     <td>{% if item.usuario.nome %}{{item.usuario.nome}}{% else %}-{% endif %}</td>
                     <td>{% if item.valor %}{{item.valor}}{% else %}-{% endif %}</td>
-                    <td>{% if item.pago %}PAGO{% else %}ESTACIONADO{%  endif %}</td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
 </div>

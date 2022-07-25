@@ -22,13 +22,21 @@ header {
 
 .main {
   display: flex;
-  height: 70%;
-  justify-content: center; }
-  .main div {
-    display: flex;
-    width: 93.5%;
+  height: 88%;
+  justify-content: center;
+  align-items: center; }
+  .main table {
+    width: 95%;
+    height: 90%;
     margin: 0 auto;
-    flex-direction: row;
-    border: 1px black solid; }
+    padding: 1rem;
+    font-family: "Montserrat", sans-serif; }
+    .main table thead tr td {
+      text-align: center;
+      margin: 0 1rem; }
+    .main table tbody {
+      background-color: var(--gray-100); }
+      .main table tbody tr td {
+        text-align: center; }
 
 /*# sourceMappingURL=token-log.css.map */
