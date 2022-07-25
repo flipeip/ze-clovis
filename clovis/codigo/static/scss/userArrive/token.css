@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .main h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.9rem;
+    width: 25%;
+    color: var(--gray-500); }
+  .main div {
+    display: flex;
+    margin-top: 50px;
+    margin-left: 75px;
+    background-color: var(--gray-100);
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    color: var(--gray-500); }
+
+/*# sourceMappingURL=token.css.map */

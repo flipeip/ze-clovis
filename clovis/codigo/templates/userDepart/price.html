@@ -4,15 +4,17 @@
 
 {% block head %}
 <meta http-equiv="refresh" content="15; URL='{% url 'codigo:user-depart' %}'" />
-<link rel="stylesheet" href="{# sass_src 'scss/login/login.scss' #}">
+<link rel="stylesheet" href="{% sass_src 'scss/userDepart/price.scss' %}">
 {% endblock head %}
 
 {% block content %}
 <div class="container">
     {% include 'utils/sidebar.html' with mensagem="até a próxima!" %}
     <div class="main">
-        <h2>Valor</h2>
-        <div>R$ 24,00</div>
+        <div id="price">
+            <h2>Valor:</h2>
+            <div class="valor">R$ {{ preco }}</div>
+        </div>
     </div>
 </div>
 {% endblock content %}

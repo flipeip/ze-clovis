@@ -1,0 +1,37 @@
+{% extends 'utils/base.html' %}
+{% load sass_tags %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% sass_src 'scss/login/token-log.scss' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="container-home">
+    {% include 'utils/admin-header.html' with back='codigo:admin-home' %}
+    <div class="main">
+        <table>
+            <thead>
+                <tr>
+                    <td>FICHA</td>
+                    <td>HORÁRIO ENTRADA</td>
+                    <td>HORÁRIO SAÍDA</td>
+                    <td>NOME</td>
+                    <td>PREÇO</td>
+                    <td>PAGO/ESTACIONADO</td>
+                </tr>
+            </thead>
+            {% for item in estacionados %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.horario_entrada|date:'d/m/y h:m:s'}}</td>
+                    <td>{% if item.horario_saida %}{{item.horario_saida|date:'d/m/y h:m:s'}}{% else %}-{% endif %}</td>
+                    <td>{% if item.usuario.nome %}{{item.usuario.nome}}{% else %}-{% endif %}</td>
+                    <td>{% if item.valor %}{{item.valor}}{% else %}-{% endif %}</td>
+                    <td>{% if item.pago %}PAGO{% else %}ESTACIONADO{%  endif %}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}

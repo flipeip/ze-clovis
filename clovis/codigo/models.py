@@ -2,6 +2,7 @@
 Arquivo de modelos do banco de dados seguindo o padrão do django
 """
 
+import math
 from django.db import models
 
 
@@ -11,12 +12,13 @@ class Config(models.Model):
 
     Obs.: Segue o padrão Singleton
     """
-    preco = models.FloatField(verbose_name="Preço por Hora")
-    vagas = models.PositiveIntegerField(verbose_name="Número de Vagas")
+    preco = models.FloatField(verbose_name="Preço por Hora", null=False, blank=False)
+    desconto = models.PositiveIntegerField(verbose_name="Desconto para Usuário Cadastrado", null=False, blank=False, default=30)
+    vagas = models.PositiveIntegerField(verbose_name="Número de Vagas", null=False, blank=False)
 
     def get_singleton():
         if not Config.objects.first():
-            Config(preco=10.00, vagas=50).save()
+            Config(preco=10.00, vagas=50, desconto=30).save()
         return Config.objects.first()
 
 
@@ -50,6 +52,17 @@ class Ficha(models.Model):
     usuario = models.ForeignKey(
         UsuarioCadastrado, blank=True, null=True, on_delete=models.PROTECT)
     pago = models.BooleanField(default=False)
+    valor = models.FloatField(null=True, blank=True)
+
+    @property
+    def diff_horas(self):
+        """
+        Retorna quantas horas o usuário passou estacionado, arredondando para cima,
+        ou None quando não existe horário de saída
+        """
+        if self.horario_saida:
+            return math.ceil(((self.horario_saida - self.horario_entrada).seconds) / 3600)
+        return None
 
     def __str__(self):
         return f'Ficha {self.id}';

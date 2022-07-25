@@ -1,0 +1,53 @@
+.container-home {
+    height: 100%;
+}
+
+header {
+    display: flex;
+    height: 12%;
+    background-color: var(--gray-500);
+
+    div {
+        display: flex;
+        width: 88%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    div.header-buttons {
+        width: 10%;
+        margin: 0;
+    }
+
+    h1 {
+        color: var(--white);
+        font-size: 2.5rem;
+        font-family: 'Jost', sans-serif;
+    }
+}
+
+.main{
+    display: flex;
+    height: 70%;
+    justify-content: center;
+    div{
+        display: flex;
+        width: 93.5%;
+        margin: 0 auto;
+        flex-direction: row;
+        border: 1px black solid;
+        table{
+            thead{
+                tr{
+                    td{
+
+                    }
+                }    
+            }
+
+            
+        }
+    }
+}

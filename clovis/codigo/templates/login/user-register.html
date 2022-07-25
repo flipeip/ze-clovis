@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% sass_src 'scss/login/home.scss' %}">
+<link rel="stylesheet" href="{% sass_src 'scss/login/user-register.scss' %}">
 {% endblock head %}
 
 {% block content %}
@@ -12,10 +12,13 @@
     <div class="main">
         <div>
             <form action="" method="POST">
-                <h2>Cadastrar usuário</h2>
-                {% csrf_token %}
-                <input name="userName" type="text" placeholder="nome do usuário">
-                <input name="cpf" type="text" placeholder="cpf">
+                <div class="container-form">
+                    <h2>Cadastrar usuário:</h2>
+                    {% csrf_token %}
+                    <input name="userName" type="text" placeholder="nome do usuário">
+                    <input name="cpf" type="text" placeholder="cpf">
+                </div>
+                    
                 <button class="btn-primary">Cadastrar</button>
             </form>
         </div>

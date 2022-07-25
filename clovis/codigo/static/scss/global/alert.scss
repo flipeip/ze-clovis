@@ -1,0 +1,48 @@
+@keyframes desaparecer {
+    0% {
+        opacity: 95%;
+    }
+    
+    99% {
+        opacity: 0;
+        color: transparent;
+        visibility: hidden;
+        height: inherit;
+        width: inherit;
+        margin: inherit;
+        padding: inherit;
+        pointer-events: none;
+    }
+
+    100% {
+        overflow: hidden;
+        opacity: 0;
+        display: none;
+        color: transparent;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.alerts {
+    position: absolute;
+    right: 0%;
+    .alert{
+        padding: 10px;
+        margin: 10px;
+        padding-bottom: 1vh;
+        background: var(--red);
+        min-width: 20vw;
+        max-width: 300px;
+        border-radius: 20px;
+        animation: desaparecer 1s 5s linear forwards;
+    }
+    p {
+        margin: 10px;
+        font-family: 'Montserrat';
+        font-weight: 600;
+    }
+}

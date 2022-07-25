@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  width: 70%;
+  align-items: center; }
+  .main div {
+    height: 70%;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center; }
+    .main div form {
+      display: flex;
+      height: 80%;
+      flex-direction: column;
+      justify-content: center; }
+    .main div h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      width: 25%; }
+    .main div input {
+      width: 45%;
+      margin-top: 2rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--gray-100);
+      height: 40px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--gray-500); }
+    .main div button {
+      margin-top: 5rem;
+      align-self: flex-end;
+      width: 50%;
+      height: 12%;
+      border: none;
+      border-radius: 30px;
+      background-color: var(--purple);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white); }
+
+/*# sourceMappingURL=login.css.map */

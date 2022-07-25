@@ -3,31 +3,40 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% sass_src 'scss/login/home.scss' %}">
+    <link rel="stylesheet" href="{% sass_src 'scss/login/config.scss' %}">
+
 {% endblock head %}
 
 {% block content %}
 <div class="container-home">
     {% include 'utils/admin-header.html' with back="codigo:admin-home" %}
     <div class="main">
-        <form>
-            {% csrf_token %}
-            <div>
-                <h2>Alterar valor da hora</h2>
-                <p>Valor atual: R${{ preco }}</p>
-                <p>Novo valor: R$</p>
-                <input name="novoValorHora" type="number">
-            </div>
-            <div>
-                <h2>Estacionamento</h2>
-                <p>Veículos estacionados: {{ estacionados }}</p>
-                <p>Número de vagas disponíveis: {{ vagas }}</p>
-                <p>Novo número de vagas: </p>
-                <input name="novoNumeroVagas" type="number">
-            </div>
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="container-form">
+                    <h2>Alterar valor da hora</h2>
+                    <p>Valor atual: R${{ preco }}</p>
+                    <p>Novo valor: R$</p>
+                    <input name="novoValorHora" type="number" placeholder="valor">
+                </div>
+                <div class="container-form">
+                    <h2>Estacionamento</h2>
+                    <p>Veículos estacionados: {{ estacionados }}</p>
+                    <p>Número de vagas disponíveis: {{ vagas }}</p>
+                    <p>Novo número de vagas: </p>
+                    <input name="novoNumeroVagas" type="number" placeholder="vagas">
+                </div>
+                <div class="container-form">
+                    <h2>Desconto</h2>
+                    <p>Desconto atual: {{ desconto }}</p>
+                    <p>Novo valor: R$</p>
+                    <input name="novoValorDesconto" type="number" placeholder="valor">
+                </div>
 
-            <button class="bnt-primary">Alterar valores</button>
-        </form>
+                <button class="bnt-primary">Alterar</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}

@@ -3,19 +3,22 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{# sass_src 'scss/login/login.scss' #}">
+<link rel="stylesheet" href="{% sass_src 'scss/userArrive/login.scss' %}">
 {% endblock head %}
 
 {% block content %}
 <div class="container">
     {% include 'utils/sidebar.html' with mensagem="informe seus dados" %}
     <div class="main">
-        <form action="" method="post">
-            <h2>Informe seu CPF</h2>
-            {% csrf_token %}
-            <input type="text" name="cpf">
-            <button class="btn-primary" type="submit">confirmar</button>
-        </form>
+        <div>
+            <form action="" method="post">
+                <h2>Informe seu CPF</h2>
+                {% csrf_token %}
+                <input type="text" name="cpf" placeholder="cpf">
+
+                <button class="btn-primary" type="submit">confirmar</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}
