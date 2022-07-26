@@ -9,7 +9,7 @@ período 2022.1.
 
 ## Desenvolvido por:
 
-- Felipe Matheus - [@Felipeipe](https://github.com/Felipeipe)
+- Felipe Matheus - [@felipeipe](https://github.com/felipeipe)
 - Lucas Henrique - [@luketeeeeee](https://github.com/luketeeeeee)
 - Arthur Henrique - [@ArthurHab](https://github.com/ArthurHab)
 - Weberton Fernandes - [@beto-de-sumatra](https://github.com/beto-de-sumatra)
