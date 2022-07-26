@@ -2,7 +2,7 @@
 Rotas de URL do sistema
 """
 from django.urls import path
-from .views import *
+from codigo.views import *
 
 app_name = 'codigo'
 
