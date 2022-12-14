@@ -2,6 +2,7 @@
   --green: #4ADE80;
   --gray-100: #E5E7EB;
   --gray-500: #6B7280;
+  --blue-500: #1c719c;
   --white: #F3F4F6;
   --red: #F87171;
   --blue: #818CF8;
@@ -26,7 +27,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--gray-500);
+  background: var(--blue-500);
   font-family: 'Jost', sans-serif;
   color: var(--white); }
   .sidebar h1 {
