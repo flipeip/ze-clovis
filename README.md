@@ -1,10 +1,14 @@
-![Clovis](/head.png?raw=true "Clovis")
+![Zé Clovis](/head.png?raw=true "Zé Clovis")
 
 Sistema de gerenciamento de estacionamentos particulares da Associação
-CLEITON para a disciplina de Métodos Avançados de Programação do Curso de
-Bacharelado em Ciência da Computação da Universidade Estadual da Paraíba,
-Campus VIII, lecionada pelo professor Pablo Roberto, para estudantes do
-período 2022.1.
+CLEITON originalmente para a disciplina de Métodos Avançados de Programação
+do Curso de Bacharelado em Ciência da Computação da Universidade Estadual da
+Paraíba, Campus VIII, lecionada pelo professor Pablo Roberto, para estudantes
+do período 2022.1.
+
+Posteriormente adaptado para a disciplina de Laboratório de Engenharia de
+Software do mesmo curso, lecionada pelo professor Pablo Suárez, para estudantes
+do período 2022.2.
 
 
 ## Desenvolvido por:
@@ -13,6 +17,7 @@ período 2022.1.
 - Lucas Henrique - [@luketeeeeee](https://github.com/luketeeeeee)
 - Arthur Henrique - [@ArthurHab](https://github.com/ArthurHab)
 - Weberton Fernandes - [@beto-de-sumatra](https://github.com/beto-de-sumatra)
+- Arthur Medeiros - [@Arthur-Medeiros](https://github.com/Arthur-Medeiros)
 
 
 ## Como instalar:
